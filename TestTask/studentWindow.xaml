@@ -1,0 +1,50 @@
+﻿<Window x:Class="TestTask.studentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestTask"
+        mc:Ignorable="d"
+        Title="studentWindow" Height="300" Width="250">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="8" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+    </Window.Resources>
+    <Border Padding="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Имя" />
+            <TextBlock Text="Фамилия" Grid.Row="1" />
+            <TextBlock Text="Возраст" Grid.Row="2" />
+            <TextBlock Text="Пол" Grid.Row="3" />
+
+            <TextBox x:Name="tbFirstName" Text="{Binding FirstName, Mode=TwoWay}" Grid.Column="1" />
+            <TextBox x:Name="tbLast" Text="{Binding Last, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" />
+            <TextBox x:Name="tbAge" Text="{Binding Age}" Grid.Column="1" Grid.Row="2" />
+            <RadioButton x:Name="rbMale" Content="Мужской" IsChecked="{Binding Gender}" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Margin="8"/>
+            <RadioButton x:Name="rbFemale" Content="Женский" IsChecked="{Binding Gender}" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Margin="8"/>
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+                <Button IsDefault="True" Click="Accept_Click" MinWidth="60" Margin="5">OK</Button>
+                <Button IsCancel="True" MinWidth="60" Margin="5">Отмена</Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
